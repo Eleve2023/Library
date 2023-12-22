@@ -1,0 +1,72 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/WorkType
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/WorkType/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/WorkType
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "Book1"
+}
+
+###
+PUT {{WebApi_HostAddress}}/api/WorkType/6
+Content-Type: application/json
+
+{
+  "id": 6,
+  "name": "CD1"
+}
+
+###
+DELETE {{WebApi_HostAddress}}/api/WorkType/4
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "CD"
+}
+
+
+###
+GET {{WebApi_HostAddress}}/api/WorkDomain
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/WorkDomain/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/WorkDomain
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "Informatique"
+}
+
+###
+PUT {{WebApi_HostAddress}}/api/WorkDomain/6
+Content-Type: application/json
+
+{
+  "id": 6,
+  "name": "CD1"
+}
+
+###
+DELETE {{WebApi_HostAddress}}/api/WorkDomain/4
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "CD"
+}
+
