@@ -13,15 +13,14 @@ namespace Application.Services
     {
         public override async Task<object> AddAsync(BorrowingDto modelDto)
         {
-            // verifie si la person n'est pas interdite d'emprunte 
-            var alertViews = await borrowingAlertViewRepository.GetAllAsync();                        
-            var alertViewsByCart = alertViews.Where(e => e.CardId == modelDto.LibraryCardId).ToList();
-            if (alertViewsByCart.Count > 0)
+            // verifie si la person n'est pas interdite d'emprunte                                    
+            var alertViewsByCart = await borrowingAlertViewRepository.GetCountBorrowingAlertByLibriryCart(modelDto.LibraryCardId);
+            if (alertViewsByCart > 0)
             {
                 throw new Exception("interdit");// todo: gestion de cette erreur
             }
 
-            // vérifie si la Person n'a deplace numbre d'emprunt
+            // vérifie si la Person n'a dépasse nombre d'emprunt
             var borrowings = await  commonRepository.GetAllAsync();
             var borrowingsByCart = borrowings.Where(e => e.LibraryCardId == modelDto.LibraryCardId).ToList();
             

@@ -2,7 +2,11 @@
 
 namespace Domain.Interfaces
 {
-    public interface IBorrowingAlertViewRepository<TModel> : ICommonRepository<BorrowingAlertView, TModel>
+    public interface IBorrowingAlertViewRepository<TModel> 
     {
+        Task<IEnumerable<BorrowingAlertView>> GetAllAsync();
+        Task<BorrowingAlertView> GetByIdAsync(object id);
+        Task<int> GetCountBorrowingAlertByLibriryCart(Guid libriryCartId);
+        Task<IEnumerable<BorrowingAlertView>> GetListBorrowingByLibriryCartAsync(Guid libriryCartId);
     }
 }

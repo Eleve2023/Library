@@ -1,12 +1,13 @@
 ﻿using Application.Helpe;
 using AutoMapper;
 using Domain.Entities.Works;
+using Domain.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Services
 {
-    public abstract class CommonRepository<TEntity, TModelDto>(AppDbContext appDbContext, MapperHelpe mapper) where TEntity : class
+    public abstract class CommonRepository<TEntity, TModelDto>(AppDbContext appDbContext, MapperHelpe mapper): ICommonRepository<TEntity, TModelDto> where TEntity : class
     {
         public virtual async Task<object> AddItemAsync(TEntity entity)
         {
