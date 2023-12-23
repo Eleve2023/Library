@@ -6,11 +6,17 @@ using Domain.Interfaces;
 
 namespace Application.Services
 {
-    public class BorrowingService(IBorrowingRepository<BorrowingDto> commonRepository, IMapper mapper, 
+    public class BorrowingService(IBorrowingRepository<BorrowingDto> borrowingRepository, IMapper mapper, 
         IBorrowingAlertViewRepository<BorrowingAlertViewDto> borrowingAlertViewRepository, IBorrowRuleRepository<BorrowRuleDto> borrowRuleRepository,
         IWorkRepository<WorkDto> workRepository
-        ) : CommonService<Borrowing, BorrowingDto>(commonRepository, mapper)
+        ) : CommonService<Borrowing, BorrowingDto>(borrowingRepository, mapper)
     {
+        private readonly IBorrowingRepository<BorrowingDto> borrowingRepository = borrowingRepository;
+        private readonly IMapper mapper = mapper;
+        private readonly IBorrowingAlertViewRepository<BorrowingAlertViewDto> borrowingAlertViewRepository = borrowingAlertViewRepository;
+        private readonly IBorrowRuleRepository<BorrowRuleDto> borrowRuleRepository = borrowRuleRepository;
+        private readonly IWorkRepository<WorkDto> workRepository = workRepository;
+
         public override async Task<object> AddAsync(BorrowingDto modelDto)
         {
             // verifie si la person n'est pas interdite d'emprunte                                    
@@ -20,15 +26,12 @@ namespace Application.Services
                 throw new Exception("interdit");// todo: gestion de cette erreur
             }
 
-            // vérifie si la Person n'a dépasse nombre d'emprunt
-            var borrowings = await  commonRepository.GetAllAsync();
-            var borrowingsByCart = borrowings.Where(e => e.LibraryCardId == modelDto.LibraryCardId).ToList();
-            
-            var borrowRules = await borrowRuleRepository.GetAllAsync();
-            var borrowRule = borrowRules.First(e => e.Id == modelDto.BorrowRuleId);
-            if (borrowingsByCart.Count > borrowRule.MaxBorrowing )
+            // vérifie si la Person n'a dépasse nombre d'emprunt            
+            var borrowingsByCart = await borrowingRepository.GetCountBorrowingByLibriryCart(modelDto.LibraryCardId);            
+            var borrowRule = await borrowRuleRepository.GetByIdAsync(modelDto.BorrowRuleId);
+            if (borrowingsByCart > borrowRule.MaxBorrowing )
             {
-                throw new Exception("déplacement"); // todo: gestion de cette erreur
+                throw new Exception("dépassement"); // todo: gestion de cette erreur
             }
             
             // verifie si l'ouvrage est disponible

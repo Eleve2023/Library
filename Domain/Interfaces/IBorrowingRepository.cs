@@ -9,5 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IBorrowingRepository<TModel> : ICommonRepository<Borrowing, TModel>
     {
+        Task<int> GetCountBorrowingByLibriryCart(Guid libriryCartId);
     } 
 }
