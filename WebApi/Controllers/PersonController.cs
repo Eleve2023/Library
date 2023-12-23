@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/Person")]
     [ApiController]
-    public class PersonController(PersonService personService) : AppController<Person, PersonDto>(personService)
+    public class PersonController(PersonService personService) : AppByIntController<Person, PersonDto>(personService)
     {        
     }
 

@@ -1,0 +1,26 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/WorkType
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/WorkType/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/WorkType
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "Book"
+}
+
+###
+POST {{WebApi_HostAddress}}/api/WorkType
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "CD"
+}

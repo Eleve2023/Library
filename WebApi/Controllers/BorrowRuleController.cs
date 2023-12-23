@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/BorrowRule")]
     [ApiController]
-    public class BorrowRuleController(BorrowRuleService borrowRuleService) : AppController<BorrowRule, BorrowRuleDto>(borrowRuleService)
+    public class BorrowRuleController(BorrowRuleService borrowRuleService) : AppByIntController<BorrowRule, BorrowRuleDto>(borrowRuleService)
     {        
     }
 

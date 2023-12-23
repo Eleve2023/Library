@@ -1,0 +1,50 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/Borrowing
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/Borrowing/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/Borrowing
+Content-Type: application/json
+
+{  
+  "id": 0,
+  "libraryCardId": "93c70dbf-c64d-4cf4-bc96-20a75fd3992b",
+  "workCodeISBN": "7276355089",  
+  "borrowingDate": "2023-12-23",
+  "dateRestitution": null,
+  "borrowRuleId": 1
+}
+
+
+###
+POST {{WebApi_HostAddress}}/api/Borrowing
+Content-Type: application/json
+
+{
+  "id": 0,
+  "libraryCardId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "workCodeISBN": "string",  
+  "borrowingDate": "2023-12-23",
+  "dateRestitution": "2023-12-23",
+  "borrowRuleId": 0
+}
+
+
+###
+DELETE {{WebApi_HostAddress}}/api/Borrowing/7476355089
+Content-Type: application/json
+
+{
+    "codeISBN": "7476355089",
+    "title": "string",
+    "author": "string",
+    "domainId": 1,    
+    "typeId": 1,    
+    "isAvailable": true,
+    "isBorrowing": true
+  }

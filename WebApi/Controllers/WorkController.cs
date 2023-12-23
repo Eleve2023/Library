@@ -9,8 +9,9 @@ namespace WebApi.Controllers
 {
     [Route("api/Work")]
     [ApiController]
-    public class WorkController(WorkService workService) : AppController<Work, WorkDto>(workService)
+    public class WorkController(WorkService workService) : AppByStringController<Work, WorkDto>(workService)
     {        
+
     }
 
 }

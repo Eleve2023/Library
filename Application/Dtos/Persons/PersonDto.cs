@@ -12,7 +12,7 @@ namespace Application.Dtos.Persons
 {
     public class PersonDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string FirstName { get; set; } = null!;
 

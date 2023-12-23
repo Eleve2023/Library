@@ -1,0 +1,46 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/Person
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/Person/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/Person
+Content-Type: application/json
+
+{
+  "id": 0,
+  "firstName": "string",
+  "lastName": "string",
+  "statu": 0
+}
+
+
+###
+POST {{WebApi_HostAddress}}/api/Person
+Content-Type: application/json
+
+{
+  "id": 0,
+  "firstName": "string2",
+  "lastName": "string2",
+  "statu": 1
+}
+
+
+###
+DELETE {{WebApi_HostAddress}}/api/Person/7476355089
+Content-Type: application/json
+
+{
+    "codeISBN": "7476355089",
+    "title": "string",
+    "author": "string",
+    "domainId": 1,    
+    "typeId": 1,    
+    "isAvailable": true,
+    "isBorrowing": true
+  }

@@ -19,6 +19,8 @@ namespace Application.Dtos
     {
         public Mapping()
         {
+            CreateMap<Person, PersonDto>();
+            CreateMap<PersonDto, Person>();
 
             CreateMap<WorkType, WorkTypeDto>();
             CreateMap<WorkTypeDto, WorkType>();
@@ -34,9 +36,12 @@ namespace Application.Dtos
             
             CreateMap<Borrowing, BorrowingDto>();
             CreateMap<BorrowingDto, Borrowing>();
-             
-            CreateMap<Person, PersonDto>();
-            CreateMap<PersonDto, Person>();
+            
+            CreateMap<BorrowRule, BorrowRuleDto>();
+            CreateMap<BorrowRuleDto, BorrowRule>();
+            
+            CreateMap<BorrowingAlertView, BorrowingAlertViewDto>();
+            CreateMap<BorrowingAlertViewDto, BorrowingAlertView>();
 
         }
     }

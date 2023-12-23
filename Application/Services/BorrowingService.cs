@@ -1,4 +1,5 @@
 ﻿using Application.Dtos.LibraryManagement.Borrowings;
+using Application.Dtos.Ouvrages;
 using AutoMapper;
 using Domain.Entities.LibraryManagement.Borrowings;
 using Domain.Interfaces;
@@ -6,19 +7,21 @@ using Domain.Interfaces;
 namespace Application.Services
 {
     public class BorrowingService(IBorrowingRepository<BorrowingDto> commonRepository, IMapper mapper, 
-        IBorrowingAlertViewRepository<BorrowingAlertViewDto> borrowingAlertViewRepository, IBorrowRuleRepository<BorrowRuleDto> borrowRuleRepository
+        IBorrowingAlertViewRepository<BorrowingAlertViewDto> borrowingAlertViewRepository, IBorrowRuleRepository<BorrowRuleDto> borrowRuleRepository,
+        IWorkRepository<WorkDto> workRepository
         ) : CommonService<Borrowing, BorrowingDto>(commonRepository, mapper)
     {
         public override async Task<object> AddAsync(BorrowingDto modelDto)
         {
-            var alertViews = await borrowingAlertViewRepository.GetAllAsync();
+            // verifie si la person n'est pas interdite d'emprunte 
+            var alertViews = await borrowingAlertViewRepository.GetAllAsync();                        
             var alertViewsByCart = alertViews.Where(e => e.CardId == modelDto.LibraryCardId).ToList();
-
             if (alertViewsByCart.Count > 0)
             {
                 throw new Exception("interdit");// todo: gestion de cette erreur
             }
 
+            // vérifie si la Person n'a deplace numbre d'emprunt
             var borrowings = await  commonRepository.GetAllAsync();
             var borrowingsByCart = borrowings.Where(e => e.LibraryCardId == modelDto.LibraryCardId).ToList();
             
@@ -29,8 +32,13 @@ namespace Application.Services
                 throw new Exception("déplacement"); // todo: gestion de cette erreur
             }
             
-            
-            return base.AddAsync(modelDto);
+            // verifie si l'ouvrage est disponible
+            var work = await workRepository.GetByIdAsync(modelDto.WorkCodeISBN);
+            if(work == null || !work.IsAvailable || !work.IsBorrowing)
+            {
+                throw new Exception("non disponible"); // todo: gestion de cette erreur
+            }
+            return await base.AddAsync(modelDto);
         }
     }
 

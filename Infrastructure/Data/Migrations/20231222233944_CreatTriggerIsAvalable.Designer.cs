@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231222233944_CreatTriggerIsAvalable")]
+    partial class CreatTriggerIsAvalable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +51,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BorrowRule", (string)null);
+                    b.ToTable("BorrowRule");
                 });
 
             modelBuilder.Entity("Domain.Entities.LibraryManagement.Borrowings.Borrowing", b =>
@@ -83,7 +86,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("WorkCodeISBN");
 
-                    b.ToTable("Borrowing", (string)null);
+                    b.ToTable("Borrowing");
                 });
 
             modelBuilder.Entity("Domain.Entities.LibraryManagement.Borrowings.BorrowingAlertView", b =>
@@ -131,7 +134,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("LibraryCard", (string)null);
+                    b.ToTable("LibraryCard");
                 });
 
             modelBuilder.Entity("Domain.Entities.Persons.Person", b =>
@@ -159,7 +162,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Person", (string)null);
+                    b.ToTable("Person");
                 });
 
             modelBuilder.Entity("Domain.Entities.Works.Work", b =>
@@ -193,7 +196,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("TypeId");
 
-                    b.ToTable("Work", (string)null);
+                    b.ToTable("Work");
                 });
 
             modelBuilder.Entity("Domain.Entities.Works.WorkDomain", b =>
@@ -210,7 +213,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkDomain", (string)null);
+                    b.ToTable("WorkDomain");
                 });
 
             modelBuilder.Entity("Domain.Entities.Works.WorkType", b =>
@@ -227,7 +230,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("WorkType", (string)null);
+                    b.ToTable("WorkType");
                 });
 
             modelBuilder.Entity("Domain.Entities.LibraryManagement.Borrowings.Borrowing", b =>

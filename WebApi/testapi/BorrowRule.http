@@ -1,0 +1,50 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/BorrowRule
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/BorrowRule/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/BorrowRule
+Content-Type: application/json
+
+{  
+  "id": 0,
+  "name": "string",
+  "loanDuration": 15,
+  "delayTolerated": 3,
+  "prohibitionToBorrow": 5,
+  "maxBorrowing": 5
+}
+
+
+###
+POST {{WebApi_HostAddress}}/api/BorrowRule
+Content-Type: application/json
+
+{
+  "id": 0,
+  "name": "string",
+  "loanDuration": 30,
+  "delayTolerated": 5,
+  "prohibitionToBorrow": 3,
+  "maxBorrowing": 10
+}
+
+
+###
+DELETE {{WebApi_HostAddress}}/api/BorrowRule/7476355089
+Content-Type: application/json
+
+{
+    "codeISBN": "7476355089",
+    "title": "string",
+    "author": "string",
+    "domainId": 1,    
+    "typeId": 1,    
+    "isAvailable": true,
+    "isBorrowing": true
+  }

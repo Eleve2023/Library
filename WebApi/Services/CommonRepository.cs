@@ -8,7 +8,7 @@ namespace WebApi.Services
 {
     public abstract class CommonRepository<TEntity, TModelDto>(AppDbContext appDbContext, MapperHelpe mapper) where TEntity : class
     {
-        public async Task<object> AddItemAsync(TEntity entity)
+        public virtual async Task<object> AddItemAsync(TEntity entity)
         {
             var entityEntry = appDbContext.Entry(entity);
             entityEntry.State = EntityState.Added;

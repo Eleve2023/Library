@@ -20,7 +20,7 @@ namespace Application.Services
         }
         public virtual async Task<TModelDto> GetAsync(object id)
         {
-            var entity = await commonRepository.GetByIdAsync((int)id);
+            var entity = await commonRepository.GetByIdAsync(id);
             return mapper.Map<TModelDto>(entity);
         }
 

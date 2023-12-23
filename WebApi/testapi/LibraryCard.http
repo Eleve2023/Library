@@ -1,0 +1,46 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/LibraryCard
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/LibraryCard/93c70dbf-c64d-4cf4-bc96-20a75fd3992b
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/LibraryCard
+Content-Type: application/json
+
+{  
+  "id": "00000000-0000-0000-0000-000000000000",
+  "createdAt": "2023-12-22",
+  "expirationDate": "2024-12-22",
+  "personId": 1
+}
+
+
+###
+POST {{WebApi_HostAddress}}/api/LibraryCard
+Content-Type: application/json
+
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "createdAt": "2023-11-11",
+  "expirationDate": "2024-11-11",
+  "personId": 2
+}
+
+
+###
+DELETE {{WebApi_HostAddress}}/api/LibraryCard/7476355089
+Content-Type: application/json
+
+{
+    "codeISBN": "7476355089",
+    "title": "string",
+    "author": "string",
+    "domainId": 1,    
+    "typeId": 1,    
+    "isAvailable": true,
+    "isBorrowing": true
+  }

@@ -1,0 +1,4 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/alerts
+Accept: application/json

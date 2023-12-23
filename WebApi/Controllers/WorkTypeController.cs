@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/WorkType")]
     [ApiController]
-    public class WorkTypeController(WorkTypeService workTypeService) : AppController<WorkType, WorkTypeDto>(workTypeService)
+    public class WorkTypeController(WorkTypeService workTypeService) : AppByIntController<WorkType, WorkTypeDto>(workTypeService)
     {
         // GET: api/<ValuesController>
         [HttpGet]

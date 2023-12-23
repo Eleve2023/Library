@@ -14,7 +14,7 @@ namespace Application.Dtos.LibraryManagement
         public Guid Id { get; set; }
         public DateOnly CreatedAt { get; set; }
         public DateOnly ExpirationDate { get; set; }
-        public Guid PersonId { get; set; }
-        public PersonDto Person { get; set; } = null!;
+        public int PersonId { get; set; }
+        public PersonDto? Person { get; set; } = null!;
     }
 }

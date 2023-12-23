@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/LibraryCard")]
     [ApiController]
-    public class LibraryCardController(LibraryCardService libraryCardService) : AppController<LibraryCard, LibraryCardDto>(libraryCardService)
+    public class LibraryCardController(LibraryCardService libraryCardService) : AppByGuidController<LibraryCard, LibraryCardDto>(libraryCardService)
     {        
     }
 

@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/Borrowing")]
     [ApiController]
-    public class BorrowingController(BorrowingService borrowingService) : AppController<Borrowing, BorrowingDto>(borrowingService)
+    public class BorrowingController(BorrowingService borrowingService) : AppByStringController<Borrowing, BorrowingDto>(borrowingService)
     {        
     }
 

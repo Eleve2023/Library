@@ -8,7 +8,7 @@ namespace Infrastructure.Data.Configuration.LibraryManagement.Borrowings
     {
         public void Configure(EntityTypeBuilder<Borrowing> builder)
         {
-
+            builder.ToTable(tb => tb.HasTrigger("DummyTrigger"));
         }
     }
 }

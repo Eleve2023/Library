@@ -9,7 +9,7 @@ namespace WebApi.Controllers
 {
     [Route("api/WorkDomain")]
     [ApiController]
-    public class WorkDomainController(WorkDomainService workDomainService) : AppController<WorkDomain, WorkDomainDto>(workDomainService)
+    public class WorkDomainController(WorkDomainService workDomainService) : AppByIntController<WorkDomain, WorkDomainDto>(workDomainService)
     {        
     }
 
