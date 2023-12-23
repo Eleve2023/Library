@@ -1,0 +1,20 @@
+@WebApi_HostAddress = https://localhost:7062
+
+GET {{WebApi_HostAddress}}/api/Fine
+Accept: application/json
+
+###
+GET {{WebApi_HostAddress}}/api/Fine/1
+Accept: application/json
+
+###
+POST {{WebApi_HostAddress}}/api/Fine
+Content-Type: application/json
+
+{  
+  "id": 0,
+  "libraryCardId": "93c70dbf-c64d-4cf4-bc96-20a75fd3992b",
+  "borrowingId": 1,
+  "amount": 100
+}
+

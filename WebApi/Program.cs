@@ -25,6 +25,7 @@ builder.Services.AddScoped<IWorkDomainRepository<WorkDomainDto>, WorkDomainRepos
 builder.Services.AddScoped<IWorkDomainRepository<WorkDomainDto>, WorkDomainRepository>();
 builder.Services.AddScoped<IWorkRepository<WorkDto>, WorkRepository>();
 builder.Services.AddScoped<ILibraryCardRepository<LibraryCardDto>, LibraryCardRepository>();
+builder.Services.AddScoped<IFineRepository<FineDto>, FineRepository>();
 builder.Services.AddScoped<IBorrowingRepository<BorrowingDto>, BorrowingRepository>();
 builder.Services.AddScoped<IBorrowingAlertViewRepository<BorrowingAlertViewDto>, BorrowingAlertViewRepository>();
 builder.Services.AddScoped<IBorrowRuleRepository<BorrowRuleDto>, BorrowRuleRepository>();

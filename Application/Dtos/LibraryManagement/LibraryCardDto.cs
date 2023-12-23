@@ -1,8 +1,9 @@
 ﻿using Application.Dtos.Persons;
+using Domain.Entities.LibraryManagement.Borrowings;
+using Domain.Entities.LibraryManagement;
 using Domain.Entities.Persons;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;

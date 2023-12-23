@@ -19,6 +19,8 @@ namespace Domain.Entities.LibraryManagement.Borrowings
         public DateOnly BorrowingDate { get; set; }
         public DateOnly? DateRestitution { get; set; }
         public int BorrowRuleId { get; set; }
+        // REGLE DE GESTION : Ajout de la règle d'emprunt
         public BorrowRule BorrowRule { get; set; } = null!;
+        public virtual ICollection<Fine> Fines { get; set; } = Array.Empty<Fine>();
     }
 }

@@ -11,5 +11,4 @@ namespace Infrastructure.Data.Configuration.LibraryManagement
             builder.Property(x => x.Id).HasDefaultValueSql("(newid())");
         }
     }
-
 }

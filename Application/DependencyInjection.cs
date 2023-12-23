@@ -24,6 +24,7 @@ namespace Application
             services.AddScoped<BorrowingService>();
             services.AddScoped<BorrowingAlertViewService>();
             services.AddScoped<BorrowRuleService>();
+            services.AddScoped<FineService>();
             services.AddScoped<PersonService>();
             
             return services;

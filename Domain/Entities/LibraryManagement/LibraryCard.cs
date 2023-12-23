@@ -15,5 +15,6 @@ namespace Domain.Entities.LibraryManagement
         public DateOnly ExpirationDate { get; set; } = new DateOnly().AddYears(1);
         public int PersonId { get; set; }
         public Person Person { get; set; } = null!;
+        public virtual ICollection<Fine> Fines { get; set; } = Array.Empty<Fine>();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Application.Dtos.Ouvrages
 {
@@ -14,6 +15,8 @@ namespace Application.Dtos.Ouvrages
         public WorkTypeDto? Type { get; set; } = null!;
         public bool IsAvailable { get; set; } = true;
         public bool IsBorrowing { get; set; } = true;
+        [Column(TypeName = "decimal(20, 5)")]
+        public decimal Value { get; set; }
 
     }
 
